@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('type',['radio','text','number','date']);
             $table->json('options')->nullable();
             $table->json('rules')->nullable();
+            $table->boolean('is_required')->default(false);
             $table->timestamps();
         });
     }

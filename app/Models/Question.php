@@ -15,6 +15,7 @@ class Question extends Model
         'type',
         'options',
         'rules',
+        'is_required',
     ];
     public function questionnaire(){
         return $this->belongsTo(Questionnaire::class,'questionnaire_id','id');

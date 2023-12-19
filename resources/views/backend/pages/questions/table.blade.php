@@ -3,6 +3,7 @@
         <tr class="product-th">
             <th>#</th>
             <th>Content</th>
+            <th>Is Required</th>
             <th>Type</th>
             <th>Rule</th>
             <th>Action</th>
@@ -14,11 +15,17 @@
        
             @foreach ($questions as $question)
             @php
+            if(!empty($question->rules)){
+
                 $rules=implode('|',json_decode($question->rules));
+            }else {
+                $rules='';
+            }
             @endphp
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$question->content}}</td>
+                    <td>{{$question->is_required == true ? 'Yes' : 'No'}}</td>
                     <td>{{$question->type}}</td>
                     <td>{{$rules}}</td>
                     <td>

@@ -18,9 +18,8 @@ use App\Http\Controllers\backend\auth\AuthenticationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/backend-admin/login'); // Redirect '/' to the login page
+
 Route::group(['prefix'=>'backend-admin','middleware'=>'guest','as'=>'admin.'],function(){
     Route::get('login',[AuthenticationController::class,'loginForm'])->name('login.form');
     Route::post('login',[AuthenticationController::class,'login'])->name('login');

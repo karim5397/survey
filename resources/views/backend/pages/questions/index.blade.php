@@ -38,6 +38,18 @@
                                             </div>
                                             <div class="error-text type-error"></div>
                                         </div>
+                                        <div class="col-sm-12 my-2">
+                                            <div class="form-group mt-3">
+                                                <label class="form-label"> Is Required <span class="text-danger">*</span></label>
+                                                <select name="is_required" class="form-select">
+                                                    <option value="" disabled selected>-- select --</option>
+                                                    <option value="1" {{old('is_required') == '1' ? 'selected' : ''}}>Yes</option>
+                                                    <option value="0" {{old('is_required') == '0' && old('is_required') != '' ? 'selected' : ''}}>No</option>
+                                                </select>
+                                            </div>
+                                            <div class="error-text is_required-error"></div>
+
+                                        </div>
                                         <div class="col-12 my-2">
                                             <div class="form-group">
                                                 <label class="form-label">Content <span class="text-danger">*</span></label>

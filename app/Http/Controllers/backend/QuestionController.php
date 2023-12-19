@@ -22,6 +22,7 @@ class QuestionController extends Controller
  
             $validator = Validator::make($request->all(),[
                 'type'=>'required|in:text,number,radio,date',
+                'is_required'=>'required|boolean',
                 'content'=>'required|string',
                 'rule_type'=>"required_if:type,text,number|in:string,numeric",
                 'rule_min'=>"nullable|numeric",
@@ -30,6 +31,7 @@ class QuestionController extends Controller
                
             ],[
                 'type.required'=>'The type field is required',
+                'is_required.required'=>'The is_required field is required',
                 'content.required'=>'The content field is required',
                 'input.*.value.required_if'=>'The value field is required',
                 'rule_type.required_if'=>'The rule_type field is required',
@@ -56,9 +58,9 @@ class QuestionController extends Controller
             }
             $rulesJson = !empty($rules) ? json_encode($rules) : null;
             $optionsJson = !empty($options) ? json_encode($options) : null;
-            
             Question::create([
             'questionnaire_id'=>$request->questionnaire_id,
+            'is_required'=>$request->is_required,
             'order'=>order_number(new Question),
             'content' => $request->content,
             'type' => $request->type,
