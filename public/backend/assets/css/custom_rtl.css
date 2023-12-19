@@ -1,0 +1,4 @@
+.topnav-menu .dropdown .dropdown-menu-right,
+.topnav-menu .dropdown .dropdown-menu-end{
+    top:70px !important;
+}

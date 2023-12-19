@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('order');
             $table->foreignId('questionnaire_id')->constrained()->cascadeOnDelete();
             $table->text('content');
-            $table->enum('type',['radio','text','number','multiselect']);
+            $table->enum('type',['radio','text','number','date']);
             $table->json('options')->nullable();
             $table->json('rules')->nullable();
             $table->timestamps();

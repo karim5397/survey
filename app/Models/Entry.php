@@ -18,4 +18,8 @@ class Entry extends Model
     public function questionnaire(){
         return $this->belongsTo(Questionnaire::class,'questionnaire_id','id');
     }
+    
+    public function answers(){
+        return $this->hasMany(Answer::class,'entry_id','id');
+    }
 }
